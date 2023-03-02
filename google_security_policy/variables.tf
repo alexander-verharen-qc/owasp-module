@@ -13,8 +13,8 @@ variable "owasp_rules" {
     rule_sqli = {
       action           = "deny(403)"
       priority         = "1010"
-      preview          = true
-      expression       = "evaluatePreconfiguredExpr('sqli-v33-stable', ['owasp-crs-v030301-id942260-sqli', 'owasp-crs-v030301-id942421-sqli', 'owasp-crs-v030301-id942420-sqli'])"
+      preview          = false
+      expression       = "evaluatePreconfiguredExpr('sqli-v33-stable', {'sensitivity':1, 'opt_out_rule_ids': ['owasp-crs-v030301-id942260-sqli', 'owasp-crs-v030301-id942421-sqli', 'owasp-crs-v030301-id942420-sqli'])"
       source_ip_ranges = "*"
     }
     rule_xss = {
@@ -39,7 +39,7 @@ variable "owasp_rules" {
       action     = "deny(403)"
       priority   = "1050"
       preview    = false
-      expression = "evaluatePreconfiguredExpr('rfi-v33-stable', ['owasp-crs-v030301-id931130-rfi'])"
+      expression = "evaluatePreconfiguredExpr('rfi-v33-stable', {'sensitivity':1, 'opt_out_rule_ids':['owasp-crs-v030301-id931130-rfi']})"
     }
     rule_rce = {
       action     = "deny(403)"
@@ -63,7 +63,7 @@ variable "owasp_rules" {
       action     = "deny(403)"
       priority   = "1090"
       preview    = false
-      expression = "evaluatePreconfiguredExpr('protocolattack-v33-stable', ['owasp-crs-v030301-id921170-protocolattack'])"
+      expression = "evaluatePreconfiguredExpr('protocolattack-v33-stable', {'sensitivity':1, 'opt_out_rule_ids':['owasp-crs-v030301-id921170-protocolattack']})"
     }
     rule_phpattack = {
       action     = "deny(403)"

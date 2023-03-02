@@ -8,15 +8,15 @@ Below is an example of how to implement the module.
 module "cloudarmor-public-ingress-owasp" {
   # update the source relative to your module declaration
   # define the variable project_id or set the value appropriately
-  source = ".platform/networking/google_security_policy" 
+  source = "./google_security_policy" 
   project = var.project_id
   policy_name = "cloudarmor-public-ingress-owasp"
 }
 ```
 
-The module will be created after terraform init, and using terraform plan/apply -target "module.hdqc_cloudarmor_owasp" you can validate or apply the policy (changes).
+The module will be created after terraform init, and using terraform plan/apply -target "module.cloudarmor-public-ingress-owasp" you can validate or apply the policy (changes).
 
-The example will create a module named "module.hdqc_cloudarmor_owasp.google_compute_security_policy.security_policy"
+The example will create a module named "module.cloudarmor-public-ingress-owasp.google_compute_security_policy.security_policy"
 
 It can be referrenced as;
 ```terraform
@@ -24,7 +24,7 @@ resource "google_compute_backend_service" "your_backend_service" {
   ...
   security_policy                 = var.security_policy_self_link
   timeout_sec                     = 300
-  security_policy = module.hdqc_cloudarmor_owasp.google_compute_security_policy.security_policy.policy_name
+  security_policy = module.cloudarmor-public-ingress-owasp.google_compute_security_policy.security_policy.policy_name
 
   backend {
     ..
@@ -44,7 +44,7 @@ variable "owasp_rules"
       action = "deny(403)"
       priority = "1010"
       preview = true
-      expression = "evaluatePreconfiguredExpr('sqli-v33-stable')"
+      expression = "evaluatePreconfiguredExpr('sqli-v33-stable', {'sensitivity': 4, 'opt_out_rule_ids': ['owasp-crs-v030301-id942260-sqli', 'owasp-crs-v030301-id942421-sqli', 'owasp-crs-v030301-id942420-sqli']})"
       source_ip_ranges = "*"
     }
   ...
@@ -66,7 +66,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google-beta"></a> [google-beta](#provider\_google-beta) | 4.33.0 |
+| <a name="provider_google-beta"></a> [google](#provider\_google) | 4.33.0 |
 
 ## Modules
 
@@ -76,7 +76,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google-beta_google_compute_security_policy.security_policy](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/google_compute_security_policy) | resource |
+| [google-beta_google_compute_security_policy.security_policy](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_compute_security_policy) | resource |
 
 ## Inputs
 

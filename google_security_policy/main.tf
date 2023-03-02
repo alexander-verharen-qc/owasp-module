@@ -6,7 +6,7 @@ resource "google_compute_security_policy" "security_policy" {
   # The policy name, please follow policy naming convention.
   name     = var.policy_name
   project  = var.project_id
-  provider = google-beta
+  provider = google
   #----------------------------------------
   # For Default Allow Rule
   #----------------------------------------
