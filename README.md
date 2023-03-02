@@ -76,7 +76,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google-beta_google_compute_security_policy.security_policy](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_compute_security_policy) | resource |
+| [google_compute_security_policy.security_policy](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_security_policy) | resource |
 
 ## Inputs
 
