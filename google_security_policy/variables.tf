@@ -77,12 +77,6 @@ variable "owasp_rules" {
       preview    = true
       expression = "evaluatePreconfiguredExpr('sessionfixation-v33-stable')"
     }
-    rule_sqli_excluded = {
-      action     = "deny(403)"
-      priority   = "2010"
-      preview    = true
-      expression = "evaluatePreconfiguredExpr('sqli-v33-stable')"
-    }
   }
   type = map(object({
     action     = string
