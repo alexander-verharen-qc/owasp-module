@@ -77,6 +77,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [google_compute_security_policy.security_policy](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_security_policy) | resource |
+| [google cloud armor sensitivity levels & rules](https://cloud.google.com/armor/docs/waf-rules) | resource |
 
 ## Inputs
 
